@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { CodeOfConductPage } from '../code-of-conduct/code-of-conduct.page';
 
 const ERROR = {
   NO_USERNAME: {
@@ -21,11 +23,21 @@ const ERROR = {
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  private form = {}
+  private form = {
+    username: '',
+    password: ''
+  };
   
-  constructor() { }
+  constructor(public modalCtrl: ModalController) { }
 
   ngOnInit() {
+  }
+  
+  async presentModal() {
+    const modal = await this.modalCtrl.create({
+      component: CodeOfConductPage
+    });
+    return await modal.present();
   }
   
   doLogin() {
