@@ -2,16 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { CodeOfConductPage } from '../code-of-conduct/code-of-conduct.page';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPage } from './login.page';
+import { CodeOfConductPage } from './code-of-conduct.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage
+    component: CodeOfConductPage
   }
 ];
 
@@ -22,7 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [LoginPage, CodeOfConductPage],
-  entryComponents: [CodeOfConductPage]
+  declarations: [CodeOfConductPage]
 })
-export class LoginPageModule {}
+export class CodeOfConductPageModule {}
