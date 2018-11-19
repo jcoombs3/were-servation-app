@@ -1,21 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CodeOfConductPage } from '../code-of-conduct/code-of-conduct.page';
-
-const ERROR = {
-  NO_USERNAME: {
-    code: 'NoUsername',
-    text: 'Please enter a username'
-  },
-  NO_PASSWORD: {
-    code: 'NoPassword',
-    text: 'Please enter your password'
-  },
-  INCORRECT_CREDENTIALS: {
-    code: 'IncorrectCredentials',
-    text: 'Username or password is incorrect'
-  },
-};
+import { CreateAccountPage } from '../create-account/create-account.page';
+import * as errors from '../errors/errors';
 
 @Component({
   selector: 'app-login',
@@ -27,8 +14,11 @@ export class LoginPage implements OnInit {
     username: '',
     password: ''
   };
+  private accountErrors = errors.ACCOUNT_ERRORS;
   
-  constructor(public modalCtrl: ModalController) { }
+  constructor(public modalCtrl: ModalController) { 
+    console.log(this.accountErrors);
+  }
 
   ngOnInit() {
   }
@@ -40,16 +30,23 @@ export class LoginPage implements OnInit {
     return await modal.present();
   }
   
+  async presentCreateAccount() {
+    const createAccountModal = await this.modalCtrl.create({
+      component: CreateAccountPage
+    });
+    return await createAccountModal.present();
+  }
+  
   doLogin() {
     if (this.form.username && this.form.password) {
       console.log('++ doLogin', this.form);
       return;
     } 
     if(!this.form.username) {
-      this.handleError(ERROR.NO_USERNAME);
+      this.handleError(this.accountErrors.NO_USERNAME);
     }
     if(!this.form.password) {
-      this.handleError(ERROR.NO_PASSWORD);
+      this.handleError(this.accountErrors.NO_PASSWORD);
     }
   }
   

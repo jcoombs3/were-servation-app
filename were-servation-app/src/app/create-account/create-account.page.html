@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>create-account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="doCreateAccount()">
+    <ion-item>
+      <ion-input [(ngModel)]="form.firstname" name="firstname" required type="text" placeholder="First Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="form.lastname" name="lastname" type="text" placeholder="Last Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="form.username" name="username" required type="text" placeholder="Username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="form.password" name="password" required type="password" placeholder="Password"></ion-input>
+    </ion-item>
+    <ion-button shape="round" color="primary" fill="outline" type="submit">Submit</ion-button>
+  </form>
+  
+  <ion-button (click)="dismiss()" shape="round" color="primary" fill="outline">Dismiss Modal</ion-button>
+</ion-content>

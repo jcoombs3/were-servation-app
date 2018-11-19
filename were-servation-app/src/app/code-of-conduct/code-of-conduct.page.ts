@@ -7,7 +7,6 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./code-of-conduct.page.scss'],
 })
 export class CodeOfConductPage implements OnInit {
-  private value;
   
   constructor(public modalCtrl: ModalController) {
   }
