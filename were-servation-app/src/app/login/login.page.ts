@@ -17,7 +17,6 @@ export class LoginPage implements OnInit {
   private accountErrors = errors.ACCOUNT_ERRORS;
   
   constructor(public modalCtrl: ModalController) { 
-    console.log(this.accountErrors);
   }
 
   ngOnInit() {
